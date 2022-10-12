@@ -1,14 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Carril : MonoBehaviour
 {
+
+    public Image Image;
     private Rigidbody2D Rigidbody2D;
+    private SpriteRenderer Sprite;
+    private Sprite Spr;
+    private int intentos = 3;
+    private int aciertos = 0;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        Image = GameObject.Find("ImageCambiante").GetComponent<Image>();
+
+        //Sprite = GameObject.GetComponent<SpriteRenderer>();
+         Sprite = gameObject.GetComponent<SpriteRenderer>();
+        //Sprite.sprite;
+        //Sprite.sprite;
+
     }
 
     // Update is called once per frame
@@ -22,7 +36,23 @@ public class Carril : MonoBehaviour
        PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if(player != null)
         {
-            Debug.Log("paso la figura");
+            if (Sprite.sprite.ToString() == Image.sprite.ToString())
+            {
+                Debug.Log("Imagen correcta si es la imagen");
+                aciertos += 1;
+                if (aciertos == 5)
+                {
+                    Debug.Log("Tienes 20 monedas");
+                    Debug.Log("Se ha terminado la partida y has ganado");
+                }
+            }else{
+                Debug.Log("Imagen Incorrecta");
+                intentos -= 1;
+                if (intentos == 0)
+                {
+                    Debug.Log("El juegos ha terminado");
+                }
+            }
         }
     }
 }

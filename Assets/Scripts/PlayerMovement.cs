@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] formas;
     public SpriteRenderer[] formasSprite;
     public Sprite[] formasArr;
+
+    public Image Image;
 
     public Transform start;
     public Transform end;
@@ -29,9 +32,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        formasSprite[0] = formasSprite[0].GetComponent<SpriteRenderer>();
+        //formasSprite[0] = formasSprite[0].GetComponent<SpriteRenderer>();
         //triangulo.sprite = "";
         //changeFormas();
+        Image = GameObject.Find("ImageCambiante").GetComponent<Image>();
+        
+        //Image.sprite = formasArr[1];
+        
         MoveLeft = false;
         MoveRight = false;
         changeFormas();
@@ -126,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             
             int numeroAleatorio = new Random().Next(0, 4);
 
-            //Sólo si el número generado no existe en la lista se agrega
+            //Sï¿½lo si el nï¿½mero generado no existe en la lista se agrega
             if (!numeros.Contains(numeroAleatorio))
             {
                 numeros.Add(numeroAleatorio);
@@ -134,27 +141,28 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //formasSprite[0].sprite = formasArr[1];
 
-        //Random rnd = new Random();
-        //int num = rnd.Next(0,5);
-        //Debug.Log(num);
+        int imageAleatorio = new Random().Next(0,2);
+        Image.sprite = formasArr[numeros[imageAleatorio]];
+
+        //Debug.Log(Image.sprite);
+        
         int i = 0;
         foreach(var item in formasSprite)
         {
-            Debug.Log(numeros[i]);
-
-            //item.sprite = formasArr[0];
+            //Debug.Log(numeros[i]);
             item.sprite = formasArr[numeros[i]];
-            //numeros.RemoveAt();
             i++;
-            
-            //Debug.Log(numeros[0]);
-            //numeros.RemoveAt(0);
-            //Debug.Log(i);
-            //int aleatorio = rnd.Next(0, 4);
         }
 
 
+    }
+
+    void collisionImage()
+    {
+        // if (Image.sprite == )
+        // {
+            
+        // }
     }
 }
