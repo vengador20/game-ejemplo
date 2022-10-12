@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using Random = System.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         //changeFormas();
         MoveLeft = false;
         MoveRight = false;
+        changeFormas();
     }
 
     //cuando se presiona el boton izquierdo
@@ -64,15 +68,6 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         MovementHighway();
         InfiniteHighway();
-        changeFormas();
-        //triangulo.
-        jugadorFigura();
-    }
-
-    //jugador esta en la figura
-    void jugadorFigura()
-    {
-        
     }
 
     //carretera en movimiento infinito
@@ -90,10 +85,17 @@ public class PlayerMovement : MonoBehaviour
         if(highway.transform.position.y <= start.position.y)
         {
             highway.transform.position = new Vector3(highway.transform.position.x,end.transform.position.y,highway.transform.position.z);
+            foreach (var item in formas)
+            {
+                item.transform.position = new Vector3(item.transform.position.x, end.transform.position.y,item.transform.position.z);
+            }
+            //cada vez que pasa el personaje por una forma se actualiza a diferente forma
+            changeFormas();
         }
     }
     public void Movement()
     {
+        
         //si se presiona el boton izquierdo
         if (MoveLeft)
         {
@@ -117,6 +119,42 @@ public class PlayerMovement : MonoBehaviour
 
     void changeFormas()
     {
-        formasSprite[0].sprite = formasArr[1];
+        var numeros = new List<int>();
+        //Iteramos hasta que la lista tenga 10 elementos
+        while (numeros.Count < 3)
+        {
+            
+            int numeroAleatorio = new Random().Next(0, 4);
+
+            //Sólo si el número generado no existe en la lista se agrega
+            if (!numeros.Contains(numeroAleatorio))
+            {
+                numeros.Add(numeroAleatorio);
+                //Debug.Log(numeroAleatorio);
+            }
+        }
+
+        //formasSprite[0].sprite = formasArr[1];
+
+        //Random rnd = new Random();
+        //int num = rnd.Next(0,5);
+        //Debug.Log(num);
+        int i = 0;
+        foreach(var item in formasSprite)
+        {
+            Debug.Log(numeros[i]);
+
+            //item.sprite = formasArr[0];
+            item.sprite = formasArr[numeros[i]];
+            //numeros.RemoveAt();
+            i++;
+            
+            //Debug.Log(numeros[0]);
+            //numeros.RemoveAt(0);
+            //Debug.Log(i);
+            //int aleatorio = rnd.Next(0, 4);
+        }
+
+
     }
 }
