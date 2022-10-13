@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] formas;
     public SpriteRenderer[] formasSprite;
     public Sprite[] formasArr;
+    public int intentos = 3;
+    public int aciertos = 0;
 
     public Image Image;
 

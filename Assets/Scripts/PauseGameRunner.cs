@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseGameRunner : MonoBehaviour
 {
     [SerializeField]
-    private bool gameRunning = false;
+    private bool gameRunning = true;
 
     public GameObject button;
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class PauseGameRunner : MonoBehaviour
         if (gameRunning)
         {
             //juego corriendo
-            Debug.Log("corriendo");
+            //Debug.Log("corriendo");
             Time.timeScale = 1;
 
             //reanudar audio
@@ -53,7 +53,7 @@ public class PauseGameRunner : MonoBehaviour
         else
         {
             //juego pausado
-            Debug.Log("pausado");
+            //Debug.Log("pausado");
             Time.timeScale = 0;
 
             //pausar audio
@@ -79,7 +79,7 @@ public class PauseGameRunner : MonoBehaviour
 
     public void GameRunning()
     {
-        gameRunning = true;
+        gameRunning = false;
         Time.timeScale = 1;
     }
 }

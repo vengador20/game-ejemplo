@@ -29,10 +29,10 @@ public class Carril : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,21 +42,25 @@ public class Carril : MonoBehaviour
             if (Sprite.sprite.ToString() == Image.sprite.ToString())
             {
                 Debug.Log("Imagen correcta si es la imagen");
-                aciertos += 1;
+                player.aciertos += 1;
+
                 //textoIntentos.text = "Itentos :" + aciertos;
-                if (aciertos == 5)
+                if (player.aciertos == 5)
                 {
                     Debug.Log("Tienes 20 monedas");
                     Debug.Log("Se ha terminado la partida y has ganado");
+                    Time.timeScale = 0;
                 }
-            }else{
+            }
+            else{
                 Debug.Log("Imagen Incorrecta");
-                intentos -= 1;
-                textoIntentos.text = $"Intentos: {intentos}";
+                player.intentos -= 1;
+                textoIntentos.text = $"Intentos: {player.intentos}";
 
-                if (intentos == 0)
+                if (player.intentos == 0)
                 {
                     Debug.Log("El juegos ha terminado");
+                    Time.timeScale = 0;
                 }
             }
         }
