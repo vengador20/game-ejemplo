@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Carril : MonoBehaviour
 {
-
+    [SerializeField] public TextMeshProUGUI textoIntentos;
+    //public TextMes
     public Image Image;
     private Rigidbody2D Rigidbody2D;
     private SpriteRenderer Sprite;
@@ -17,6 +19,7 @@ public class Carril : MonoBehaviour
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Image = GameObject.Find("ImageCambiante").GetComponent<Image>();
+        //textoIntentos = gameObject.GetComponent<TextMeshProUGUI>();
 
         //Sprite = GameObject.GetComponent<SpriteRenderer>();
          Sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -40,6 +43,7 @@ public class Carril : MonoBehaviour
             {
                 Debug.Log("Imagen correcta si es la imagen");
                 aciertos += 1;
+                //textoIntentos.text = "Itentos :" + aciertos;
                 if (aciertos == 5)
                 {
                     Debug.Log("Tienes 20 monedas");
@@ -48,6 +52,8 @@ public class Carril : MonoBehaviour
             }else{
                 Debug.Log("Imagen Incorrecta");
                 intentos -= 1;
+                textoIntentos.text = $"Intentos: {intentos}";
+
                 if (intentos == 0)
                 {
                     Debug.Log("El juegos ha terminado");
