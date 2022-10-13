@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     //carretera en movimiento infinito
     void MovementHighway()
     {
-        highway.transform.position = new Vector3(highway.transform.position.x,highway.transform.position.y - 0.8f * Time.deltaTime,transform.position.z);
+        highway.transform.position = new Vector3(highway.transform.position.x,highway.transform.position.y - 0.8f * Time.deltaTime, highway.transform.position.z);
         foreach (var item in formas)
         {
             item.transform.position = new Vector3(item.transform.position.x,item.transform.position.y-0.8f* Time.deltaTime,item.transform.position.z);

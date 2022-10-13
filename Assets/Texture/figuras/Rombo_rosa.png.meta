@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bbd08f707d948f43a1c089291e0f43a
+guid: cf5eae2bece494141b91d760d4b075f9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,70 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: fondo_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1808
-        width: 1104
-        height: 592
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0659b647af0871943a2ad1367783c390
-      internalID: -1533076278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fondo_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1104
-        height: 447
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35de19167184e294ab22e90f7e4d0bdc
-      internalID: -1870529227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fondo_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1104
-        height: 2400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b30ed0db701c60b449b0bfc3522fc50f
-      internalID: 125822521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -189,10 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      fondo_0: -1533076278
-      fondo_2: -1870529227
-      fondo_1: 125822521
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
