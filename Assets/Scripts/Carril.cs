@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class Carril : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI textoIntentos;
+    //[SerializeField] private GameObject menuGameEnd;
     //public TextMes
     public Image Image;
     private Rigidbody2D Rigidbody2D;
     private SpriteRenderer Sprite;
     private Sprite Spr;
-    private int intentos = 3;
-    private int aciertos = 0;
+    //private int intentos = 3;
+    //private int aciertos = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Carril : MonoBehaviour
 
         //Sprite = GameObject.GetComponent<SpriteRenderer>();
          Sprite = gameObject.GetComponent<SpriteRenderer>();
+         //menuGameEnd.SetActive(true);
         //Sprite.sprite;
         //Sprite.sprite;
 
@@ -50,6 +52,7 @@ public class Carril : MonoBehaviour
                     Debug.Log("Tienes 20 monedas");
                     Debug.Log("Se ha terminado la partida y has ganado");
                     Time.timeScale = 0;
+                    //menuEndPlay();
                 }
             }
             else{
@@ -61,8 +64,19 @@ public class Carril : MonoBehaviour
                 {
                     Debug.Log("El juegos ha terminado");
                     Time.timeScale = 0;
+                    //menuEndPlay();
+
                 }
             }
         }
     }
+
+
+    //private void menuEndPlay()
+    //{
+    //    menuGameEnd.SetActive(true);
+    //    //LeanTween.scale(menuEnd, new Vector3(1, 1, 1), 0.5f).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
+    //    //LeanTween.alpha(menuEndFondo, 0.5f, 0.5f);
+    //    //LeanTween.alpha(menuEnd, 1f, 0.5f);
+    //}
 }
