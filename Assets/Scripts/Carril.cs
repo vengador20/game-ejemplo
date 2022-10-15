@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Carril : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI textoIntentos;
-    //[SerializeField] private GameObject menuGameEnd;
+    [SerializeField] public GameObject menuGameEnd;
     //public TextMes
     public Image Image;
     private Rigidbody2D Rigidbody2D;
@@ -23,8 +23,8 @@ public class Carril : MonoBehaviour
         //textoIntentos = gameObject.GetComponent<TextMeshProUGUI>();
 
         //Sprite = GameObject.GetComponent<SpriteRenderer>();
-         Sprite = gameObject.GetComponent<SpriteRenderer>();
-         //menuGameEnd.SetActive(true);
+        Sprite = gameObject.GetComponent<SpriteRenderer>();
+        //menuGameEnd.SetActive(true);
         //Sprite.sprite;
         //Sprite.sprite;
 
@@ -33,13 +33,13 @@ public class Carril : MonoBehaviour
     // Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       PlayerMovement player = collision.GetComponent<PlayerMovement>();
-        if(player != null)
+        PlayerMovement player = collision.GetComponent<PlayerMovement>();
+        if (player != null)
         {
             if (Sprite.sprite.ToString() == Image.sprite.ToString())
             {
@@ -52,10 +52,11 @@ public class Carril : MonoBehaviour
                     Debug.Log("Tienes 20 monedas");
                     Debug.Log("Se ha terminado la partida y has ganado");
                     Time.timeScale = 0;
+                    EndGame();
                     //menuEndPlay();
                 }
             }
-            else{
+            else {
                 Debug.Log("Imagen Incorrecta");
                 player.intentos -= 1;
                 textoIntentos.text = $"Intentos: {player.intentos}";
@@ -64,8 +65,8 @@ public class Carril : MonoBehaviour
                 {
                     Debug.Log("El juegos ha terminado");
                     Time.timeScale = 0;
+                    EndGame();
                     //menuEndPlay();
-
                 }
             }
         }
@@ -79,4 +80,9 @@ public class Carril : MonoBehaviour
     //    //LeanTween.alpha(menuEndFondo, 0.5f, 0.5f);
     //    //LeanTween.alpha(menuEnd, 1f, 0.5f);
     //}
+
+    private void EndGame()
+    {
+        menuGameEnd.SetActive(true);
+    }
 }
