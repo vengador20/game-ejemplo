@@ -8,6 +8,7 @@ public class Carril : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI textoIntentos;
     [SerializeField] public GameObject menuGameEnd;
+    [SerializeField] public GameObject menuNextGameEnd;
     //public TextMes
     public Image Image;
     private Rigidbody2D Rigidbody2D;
@@ -46,13 +47,18 @@ public class Carril : MonoBehaviour
                 Debug.Log("Imagen correcta si es la imagen");
                 player.aciertos += 1;
 
+
                 //textoIntentos.text = "Itentos :" + aciertos;
-                if (player.aciertos == 5)
+                if (player.aciertos == 1)//5
                 {
                     Debug.Log("Tienes 20 monedas");
                     Debug.Log("Se ha terminado la partida y has ganado");
                     Time.timeScale = 0;
-                    EndGame();
+                    if(player.levelOne == true)
+                    {
+                        EndGame(true);
+                    }
+                    
                     //menuEndPlay();
                 }
             }
@@ -65,7 +71,7 @@ public class Carril : MonoBehaviour
                 {
                     Debug.Log("El juegos ha terminado");
                     Time.timeScale = 0;
-                    EndGame();
+                    EndGame(false);
                     //menuEndPlay();
                 }
             }
@@ -81,8 +87,15 @@ public class Carril : MonoBehaviour
     //    //LeanTween.alpha(menuEnd, 1f, 0.5f);
     //}
 
-    private void EndGame()
+    private void EndGame(bool nextEnd)
     {
         menuGameEnd.SetActive(true);
+
+        //si es true gano y si es falso perdio
+        menuNextGameEnd.SetActive(nextEnd);
+        //if (nextEnd == true)
+        //{ menuNextGameEnd.SetActive(true); }
+        //else { menuNextGameEnd.SetActive(false); }
     }
+
 }

@@ -16,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] formas;
     public SpriteRenderer[] formasSprite;
     public Sprite[] formasArr;
-    public int intentos = 3;
-    public int aciertos = 0;
+    public bool levelOne;
+    public int intentos { get; set; } = 3;
+    public int aciertos { get; set; } = 0;
 
     public Image Image;
 
@@ -82,10 +83,10 @@ public class PlayerMovement : MonoBehaviour
     //carretera en movimiento infinito
     void MovementHighway()
     {
-        highway.transform.position = new Vector3(highway.transform.position.x,highway.transform.position.y - 0.8f * Time.deltaTime, highway.transform.position.z);
+        highway.transform.position = new Vector3(highway.transform.position.x,highway.transform.position.y - 0.8f * Time.deltaTime * speed, highway.transform.position.z);
         foreach (var item in formas)
         {
-            item.transform.position = new Vector3(item.transform.position.x,item.transform.position.y-0.8f* Time.deltaTime,item.transform.position.z);
+            item.transform.position = new Vector3(item.transform.position.x,item.transform.position.y-0.8f* Time.deltaTime * speed, item.transform.position.z);
         }
     }
 
